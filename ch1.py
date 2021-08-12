@@ -7,9 +7,21 @@ def is_unique(str):
         arr[index] = True
     return True
 
+def is_unique_sorting(str):
+    sorted_string = sorted(str)
+    last_character = None
+    for char in sorted_string:
+        if char == last_character:
+            return False
+        last_character = char
+    return True
 
 print(is_unique("yolo") == False)
 print(is_unique("rad") == True)
 print(is_unique("yOlo") == True)
 
+
+print(is_unique_sorting("yolo") == False)
+print(is_unique_sorting("rad") == True)
+print(is_unique_sorting("yOlo") == True)
 
