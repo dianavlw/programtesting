@@ -68,24 +68,65 @@ Can you also assume that it doesnt acknoledge spaces making it not a permutation
 
 """
 
-def urlify(s, size):
-    s = s[0:size]
-    return s.replace(" ", "%20")
+# def urlify(s, size):
+#     s = s[0:size]
+#     return s.replace(" ", "%20")
 
-def urlify2(s, size):
-    new_string = []
+# def urlify2(s, size):
+#     new_string = []
 
-    for char in s[0:size]:
-        if char == " ":
-            temp = "%20"
+#     for char in s[0:size]:
+#         if char == " ":
+#             temp = "%20"
+#         else:
+#             temp = char
+#         new_string.append(temp)
+#     converted_string = "".join(new_string)
+#     return converted_string
+
+# # Driver Code
+# s = 'Mr John Smith'
+# size = 13
+# print(urlify(s, size))
+# print(urlify2(s, size))
+
+"""
+    1.4 Palindrom Permutation: given a string write a function to check if it is a permutation of a palindrome.  A palindrome is a word which is written the same forwards and backwards EX. 'madam' 'racecar' kayak'. a permutation is an arrangement of letters EX "god" "dog"
+"""
+
+# QUESTION : i need to remove the space, as well as make the characters lower case
+#  when we have even number of characters example: abab vs odd ababa 
+#  if the letter repeats more than once than it is not a palindrome if it only once than it is a palidrome
+
+def is_palindrome_permutation(s):
+    s = s.lower().replace(" ", '')
+
+    # we want to now make a dictionary to place 
+    # we need to keep track of the char count
+
+    char_set = {}
+    odd_count= 0
+    # iterate through the string 
+
+    for char in s:
+        if char not in char_set:
+            char_set[char] = 1
         else:
-            temp = char
-        new_string.append(temp)
-    converted_string = "".join(new_string)
-    return converted_string
+            char_set[char] += 1
+    
+    for item in char_set:
+        if char_set[item] % 2 == 1:
+            odd_count += 1
+        if odd_count > 1:
+            return False
+    return True
+
+
 
 # Driver Code
-s = 'Mr John Smith'
-size = 13
-print(urlify(s, size))
-print(urlify2(s, size))
+s = 'Tact coa'
+m = 'aljw'
+print(is_palindrome_permutation(s))
+print(is_palindrome_permutation(m))
+
+         
