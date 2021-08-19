@@ -60,7 +60,13 @@ class MinStack:
         self.stack.append(value)
         value = min(value, self.minStack[-1] if self.minStack else value)
         self.minStack.append(value)
-
+"""
+     if not self.stack or value < self.minStack[-1]:
+            self.minStack.append(value)
+        else:
+            self.minStack.append(self.minStack[-1])
+        self.stack.append(value)
+"""
     def pop(self):
         self.stack.pop()
         self.minStack.pop()
