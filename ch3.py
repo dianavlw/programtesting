@@ -56,7 +56,7 @@ class MinStack:
         self.stack = []
         self.minStack = []
 
-    def pust(self, value):
+    def push(self, value):
         self.stack.append(value)
         value = min(value, self.minStack[-1] if self.minStack else value)
         self.minStack.append(value)
