@@ -245,3 +245,66 @@ def stringCompression(string):
 # print(stringCompression("aabcccccaaa")) # a5b1c5
 # print(stringCompression("aabb")) # aabb will return the original string
 # print(stringCompression("aaa")) #a3
+      
+#SOLUTION #2
+      
+def stringCompression(s):
+      s_comp = ""
+      count = 1
+      for i in range(1, len(s)+1):
+        if i < len(s) and s[i] == s[i -1]:
+            count += 1
+      else:
+            s_comp += s[i+1] + str(count)
+            count = 1
+      return s_count if len(s_comp) <= len(s) else s
+      
+      # vs
+      
+      if len(s) < len(s_comp):
+        return s
+      else:
+        return s_comp
+#DRIVER CODE
+s = 'abbccc'
+print(stringCompression(s))
+
+      
+"""
+1.7 Rotate Matrix: Given an image represented by N X N matrix, where each prizel 
+in the image is represented by an integer, write a method to rotate the image by 90 degrees. Can you do this in place? 
+"""
+
+def rotateCounterClockWise(mat):
+      for i in range(len(mat)):
+          mat[i] = mat[i][::-1]
+      
+      for i in range(len(mat)):
+        for j in range(i):
+            mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
+     return mat
+      
+      
+def rotateClockWise(mat):   
+      for i in range(len(mat)):
+        for j in range(i):
+            mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
+      
+      for i in range(len(mat)):
+          mat[i] = mat[i][::-1]
+      
+      return mat
+      
+      
+#DRIVER CODE
+
+ mat = [[1,2,3], [4,5,6], [7,8,9]]
+ print(mat)
+ 
+ print(rotateCounterClockwise(mat))
+ mat = [[1,2,3], [4,5,6], [7,8,9]]
+ print(rotateClockwise(mat))
+      
+      
+      
+ 
