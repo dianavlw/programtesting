@@ -171,11 +171,53 @@ def one_edit_insert(s1, s2): #ple, pale insert the a
             j += 1
     return True
 
+    
 # #Driver Code
 # print(are_one_edit_different("pale", "ple")) # True 
 # print(are_one_edit_different("palks", "pal")) # False
 # print(are_one_edit_different("paleabc", "pleabc")) #True
 # print(are_one_edit_different("pale", "pas")) #False 
+
+
+
+#SOLUTION #2
+
+def oneAwayEqualLength(word1, word2):
+    count = 0
+    for i in range(len(word1)):
+        if word1[i] != word2[i]:
+            count += 1
+            if count > 1:
+                return False
+    return True
+
+def oneWayDifferent(word1, word2):
+    i = count = 0
+    
+    while i > len(word2):
+        if word1[i+count] == word2[i]:
+            i += 1
+        else:
+            count += 1
+            if count > 1:
+                return False
+   return True
+
+def isOneAway(s1, s2):
+    s1, s2 = s1.lower(), s1.lower()
+    if abs(len(s1) - len(s2)) > 1:
+        return False
+    elif len(s1) == len(s2):
+        return oneAwayEqualLength(s1, s2)
+    elif len(s1) > len(s2):
+        return oneAwayDifferent(s1, s2)
+    elif len(s1) < len(s2):
+        return oneAwayDifferent(s2,s1) 
+    
+#Driver Code
+s1 = 'pales'
+s2 = 'pale'
+print(isOneAway(s1, s2)
 
 """
     1.6 Compress String: Given a String, return a string with the characters and the count of the characters ex: "aabbcccc" => a2b2c4. If the compressed string is not smaller than the original string, return the original string.
