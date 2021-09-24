@@ -306,5 +306,103 @@ def rotateClockWise(mat):
  print(rotateClockwise(mat))
       
       
-      
+       
+"""
+1.8 Zero Matrix: Write an algorithm such that if an element in the M xN matrix is 0, 
+its entire row and column are set to 0.
+https://www.youtube.com/watch?v=loMUFyjROW4&list=PLe3prZPgkqR1ddczYNwC24IxA_EwBbbjw&index=16
+O(M +N)
+"""     
  
+def setZeroes(matrix):
+      row_arr = [1] * len(matrix)
+      col_arr = [1] * len(matrix[0])
+      
+      for i in range(len(matrix)):
+        for j in range(len(matrix[0])):
+            if matrix[i][j] == 0:
+                row_arr[i], col_arr[j] = 0, 0
+      
+      for i in range(len(matrix)):
+        for j in range(len(matrix[0])):    
+           if row_arr[i] == 0 or col_arr[j] == 0:
+             matrix[i][j] = 0
+     
+      return matrix
+      
+      
+      
+# O(1) contast space
+def setZeroes(matrix):
+    col0 = 1
+      
+    for i in range(0, len(matrix)):
+      if(matrix[i][0] == 0): col0 = 0
+      for j in range(1, len(matrix[i)):
+        if matrix[i][j] == 0:
+            matrix[0][j] = matrix[i]= 0
+                                   
+    for i in reversed(0, len(matrix)):
+      for j in reversed(range(1, len(matrix[i))):
+        if matrix[i][j] == 0 or matrix[0][j] == 0:
+            matrix[i][j] = 0
+        if (col0 == 0): mat[i][j] = 0 
+    
+   return matrix
+                                 
+      
+ #https://www.youtube.com/watch?v=8cxpwEjeElY&list=PLe3prZPgkqR1ddczYNwC24IxA_EwBbbjw&index=17
+                                            
+                                            
+"""
+1.9 String Rotation: Assume you have a method isSubstring which check if one word is a substring of another.
+Given two strings, s1, and s2, write code to check if s2 is a rotation of s1 using only 
+one call to isSubstring(e.g., 
+waterbottle" is a rotation of "erbottlewat"'
+
+"""
+def string_rotation(s1, s2):
+    if len(s1) == len(s2) != 0:
+        return s2 in s1 * 2
+    return False
+                                            
+---------------------------------
+                                           
+#Solution 2. 
+ #Optimize:
+  
+def isSubstring(s1, s2):
+  return (s1 in s2)                                     
+      
+def rotateString(s1, s2):
+  return (len(s1) == len(s2)) and (isSubstring(s2, s1+s1))                                            
+                                            
+                                            
+#a bit longer                                            
+                                            
+def isSubstring(s1, s2):
+  if s1 in s2:
+    return True
+ else:
+    return False                                        
+      
+def rotateString(s1, s2):
+  if len(isSubstring(s2, s1+s1):                     
+      return True
+  else:    
+      return False
+      
+      
+      
+#Leetcode 
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        return (len(s) == len(goal) and goal in s+s)         
+         
+         
+class Solution:
+    def rotateString(self, s: str, goal: str) -> bool:
+        return (len(s) == len(goal) and self.isSubstring(goal, s+s)
+    def isSubstring(self, string1, string2):
+        return (string1 in string2)
+      
